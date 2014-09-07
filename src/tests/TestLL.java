@@ -11,50 +11,50 @@ import org.junit.Test;
 import ds.LinkedListNode;
 
 public class TestLL {
-	protected LinkedListNode test;
+	protected LinkedListNode<Integer> test;
 
 	@Before
 	public void setUp() {
-		test = new LinkedListNode(1);
+		test = new LinkedListNode<Integer>(1);
 		for (int i = 2; i <= 10; i++) {
-			test.insertNode(test, new LinkedListNode(i), i, false);
+			test.insertNode(test, new LinkedListNode<Integer>(i), i, false);
 		}
 	}
 
 	@Test
 	public void testLLNode() {
-		LinkedListNode start = new LinkedListNode(5);
-		assertTrue(5 == start.getData());
+		LinkedListNode<Integer> start = new LinkedListNode<Integer>(5);
+		assertTrue(5 == (Integer)start.getData());
 	}
 
 	@Test
 	public void testLLsetData() {
-		LinkedListNode start = new LinkedListNode(5);
+		LinkedListNode<Integer> start = new LinkedListNode<Integer>(5);
 		start.setData(6);
-		assertTrue(6 == start.getData());
+		assertTrue(6 == (Integer)start.getData());
 	}
 
 	@Test
 	public void testLLListLength() {
-		LinkedListNode start = new LinkedListNode(5);
+		LinkedListNode<Integer> start = new LinkedListNode<Integer>(5);
 		assertTrue(10 == start.ListLength(test));
 	}
 
 	@Test
 	public void testLLInsert() {
-		LinkedListNode start = new LinkedListNode(5);
+		LinkedListNode<Integer> start = new LinkedListNode<Integer>(5);
 
 		// Insert at beginning
-		start = start.insertNode(start, new LinkedListNode(4), 1, false);
-		assertTrue(4 == start.getData());
+		start = start.insertNode(start, new LinkedListNode<Integer>(4), 1, false);
+		assertTrue(4 == (Integer)start.getData());
 
 		// Insert at End
-		start = start.insertNode(start, new LinkedListNode(7), 0, true);
-		assertTrue(3 == start.ListLength(start));
+		start = start.insertNode(start, new LinkedListNode<Integer>(7), 0, true);
+		assertTrue(3 == (Integer)start.ListLength(start));
 
 		// insert middle
-		start = start.insertNode(start, new LinkedListNode(6), 3, false);
-		assertTrue(6 == start.getNext().getNext().getData());
+		start = start.insertNode(start, new LinkedListNode<Integer>(6), 3, false);
+		assertTrue(6 == (Integer) start.getNext().getNext().getData());
 
 	}
 
@@ -62,7 +62,7 @@ public class TestLL {
 	public void testLLDelete() {
 		// Delete beginning
 		test = test.deleteNode(test, 1);
-		assertTrue(2 == test.getData());
+		assertTrue(2 == (Integer) test.getData());
 
 		// Delete end
 		test = test.deleteNode(test, test.ListLength(test));
@@ -76,7 +76,7 @@ public class TestLL {
 	public void testLLPointer() {
 		
 		
-		LinkedListNode start = test;
+		LinkedListNode<Integer> start = test;
 		assertTrue("Should be equal:",start.equals(test));
 		
 		test = test.deleteNode(test, 5);

@@ -3,27 +3,27 @@ package ds;
 /*
  *  @author Vivek Kaarthek
  */
-public class LinkedListNode {
-	private int data;
-	private LinkedListNode next;
+public class LinkedListNode<T> {
+	private Object data;
+	private LinkedListNode<T> next;
 
-	public LinkedListNode(int data) {
+	public LinkedListNode(T data) {
 		this.data = data;
 	}
 
-	public void setData(int data) {
+	public void setData(T data) {
 		this.data = data;
 	}
 
-	public int getData() {
+	public Object getData() {
 		return this.data;
 	}
 
-	public void setNext(LinkedListNode next) {
+	public void setNext(LinkedListNode<T> next) {
 		this.next = next;
 	}
 
-	public LinkedListNode getNext() {
+	public LinkedListNode<T> getNext() {
 		return this.next;
 	}
 
@@ -31,9 +31,9 @@ public class LinkedListNode {
 	 * Operations 1.Traversal 2.Insertion 3.Deletion
 	 */
 
-	public int ListLength(LinkedListNode headNode) {
+	public int ListLength(LinkedListNode<T> headNode) {
 		int len = 0;
-		LinkedListNode curr = headNode;
+		LinkedListNode<T> curr = headNode;
 
 		while (curr != null) {
 			len++;
@@ -42,14 +42,14 @@ public class LinkedListNode {
 		return len;
 	}
 
-	public LinkedListNode insertNode(LinkedListNode headNode,
-			LinkedListNode newNode, int position, Boolean insertAtEnd) {
+	public LinkedListNode<T> insertNode(LinkedListNode<T> headNode,
+			LinkedListNode<T> newNode, int position, Boolean insertAtEnd) {
 		if (headNode == null) {
 			return null;
 		}
 
 		if (insertAtEnd) {
-			LinkedListNode curr = headNode;
+			LinkedListNode<T> curr = headNode;
 			while (curr.next != null) {
 				curr = curr.getNext();
 			}
@@ -60,7 +60,7 @@ public class LinkedListNode {
 				newNode.setNext(headNode);
 				return newNode;
 			} else {
-				LinkedListNode curr = headNode;
+				LinkedListNode<T> curr = headNode;
 				for (int i = 2; i < position; i++) {
 					curr = curr.getNext();
 					if (i > size) {
@@ -73,7 +73,7 @@ public class LinkedListNode {
 		return headNode;
 	}
 
-	public LinkedListNode deleteNode(LinkedListNode headNode, int position) {
+	public LinkedListNode<T> deleteNode(LinkedListNode<T> headNode, int position) {
 		if (headNode == null) {
 			return null;
 		}
@@ -85,15 +85,15 @@ public class LinkedListNode {
 		}
 
 		if (position == 1) {
-			LinkedListNode curr = headNode.getNext();
+			LinkedListNode<T> curr = headNode.getNext();
 			headNode = null;
 			return curr;
 		} else {
-			LinkedListNode prev = headNode;
+			LinkedListNode<T> prev = headNode;
 			for (int i = 1; i < position - 1; i++) {
 				prev = prev.getNext();
 			}
-			LinkedListNode curr = prev.getNext();
+			LinkedListNode<T> curr = prev.getNext();
 			prev.setNext(curr.getNext());
 			curr = null;
 		}
