@@ -58,9 +58,10 @@ public class LinkedListNode {
 			int size = ListLength(headNode);
 			if (position == 1) {
 				newNode.setNext(headNode);
+				return newNode;
 			} else {
 				LinkedListNode curr = headNode;
-				for (int i = 2; i <= position; i++) {
+				for (int i = 2; i < position; i++) {
 					curr = curr.getNext();
 					if (i > size) {
 						System.out.print("Invalid Position");
@@ -69,7 +70,6 @@ public class LinkedListNode {
 				curr.setNext(newNode);
 			}
 		}
-
 		return headNode;
 	}
 
@@ -97,7 +97,6 @@ public class LinkedListNode {
 			prev.setNext(curr.getNext());
 			curr = null;
 		}
-
 		return headNode;
 
 	}
