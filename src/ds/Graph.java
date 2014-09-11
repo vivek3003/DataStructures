@@ -28,9 +28,11 @@ public class Graph {
 		}
 		this.start = new LinkedListNode<Vertex>(new Vertex(1));
 		
+		LinkedListNode<Vertex> pointerThatMakesAllTheDifference = this.start;
 		if(n>1)
 		for (int i=2;i<=n;i++){
-			start.insertNode(start,  new LinkedListNode<Vertex>(new Vertex(i)), 0, true);
+			start.insertNode(pointerThatMakesAllTheDifference,  new LinkedListNode<Vertex>(new Vertex(i)), 0, true);
+			pointerThatMakesAllTheDifference = pointerThatMakesAllTheDifference.getNext();
 		}
 	}	
 	
